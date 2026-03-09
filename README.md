@@ -1,12 +1,12 @@
 # 摄影师作品集 + Link-in-Bio
 
-基于 Notion 的摄影师作品集网站，集成微信、Instagram、小红书、抖音等社交媒体链接。
+摄影师作品集网站，集成微信、Instagram、小红书、抖音等社交媒体链接。
 
 ## 功能
 
-- **作品集展示**：从 Notion 数据库或本地配置拉取摄影作品
+- **作品集展示**：展示摄影作品，支持分类和描述
 - **Link-in-Bio**：集中展示社交媒体链接，适配移动端
-- **Notion 集成**：支持 Notion API 动态更新内容
+- **纯静态配置**：无需后端，修改配置文件即可更新
 
 ## 快速开始
 
@@ -20,21 +20,15 @@ npm run dev
 
 打开 [http://localhost:3000](http://localhost:3000) 预览。
 
-## 配置 Notion（可选）
-
-1. 复制 `.env.example` 为 `.env.local`
-2. 按 [NOTION_SETUP.md](./NOTION_SETUP.md) 创建 Integration 和数据库
-3. 填写环境变量后重启开发服务器
-
-未配置时使用内置默认数据。
-
 ## 自定义配置
 
-编辑 `src/lib/config.ts` 可修改：
+编辑 `src/lib/config.ts` 修改内容：
 
-- 摄影师姓名、简介、头像
-- 默认社交链接
-- 默认作品（无 Notion 时展示）
+- **photographer**：姓名、简介、头像、个人描述
+- **socialLinks**：微信、Instagram、小红书、抖音等链接
+- **portfolio**：作品列表（标题、描述、图片 URL、分类）
+
+修改后保存，页面会自动刷新。
 
 ## 部署
 
@@ -43,4 +37,4 @@ npm run build
 npm start
 ```
 
-可部署至 Vercel、Netlify 等平台，记得配置环境变量。
+可部署至 [Vercel](https://vercel.com)、Netlify 等平台，无需额外配置。

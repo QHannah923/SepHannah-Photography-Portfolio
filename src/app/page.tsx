@@ -1,21 +1,10 @@
 import Hero from '@/components/Hero';
-import LinkButton from '@/components/LinkButton';
+import ContactDropdown from '@/components/ContactDropdown';
 import PortfolioGrid from '@/components/PortfolioGrid';
 import { defaultConfig } from '@/lib/config';
-import { getLinksFromNotion, getPortfolioFromNotion } from '@/lib/notion';
 
-export const revalidate = 60; // 每 60 秒重新验证（ISR）
-
-export default async function HomePage() {
-  // 优先从 Notion 获取数据，失败则使用默认配置
-  const [notionPortfolio, notionLinks] = await Promise.all([
-    getPortfolioFromNotion(),
-    getLinksFromNotion(),
-  ]);
-
-  const portfolio = notionPortfolio ?? defaultConfig.portfolio;
-  const socialLinks = notionLinks ?? defaultConfig.socialLinks;
-  const { photographer } = defaultConfig;
+export default function HomePage() {
+  const { photographer, socialLinks, portfolio } = defaultConfig;
 
   return (
     <main className="min-h-screen">
@@ -29,17 +18,10 @@ export default async function HomePage() {
         />
       </section>
 
-      {/* Link-in-Bio 链接区 */}
+      {/* 联系方式下拉区 */}
       <section className="px-6 py-8">
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-serif text-2xl text-center text-ink-700 mb-8">
-            找到我
-          </h2>
-          <div className="flex flex-col gap-4">
-            {socialLinks.map((link) => (
-              <LinkButton key={link.id} link={link} />
-            ))}
-          </div>
+          <ContactDropdown links={socialLinks} />
         </div>
       </section>
 
@@ -55,7 +37,7 @@ export default async function HomePage() {
 
       {/* Footer */}
       <footer className="py-12 text-center text-ink-500 text-sm">
-        <p>基于 Notion 构建 · 用镜头定格永恒</p>
+        <p>用镜头定格永恒</p>
       </footer>
     </main>
   );
