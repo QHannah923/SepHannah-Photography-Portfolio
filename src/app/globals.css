@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #373631;
+  --background: #f7f7f5;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+/* 优雅的图片悬停效果 */
+.gallery-item {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+/* Link 按钮悬停 */
+.link-button {
+  transition: all 0.3s ease;
+}
+
+.link-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgb(0 0 0 / 0.1);
+}
