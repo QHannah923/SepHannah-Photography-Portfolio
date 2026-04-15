@@ -12,7 +12,7 @@ body {
   background: var(--background);
 }
 
-/* 优雅的图片悬停效果 */
+/* Gallery hover */
 .gallery-item {
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -21,7 +21,7 @@ body {
   transform: scale(1.02);
 }
 
-/* Link 按钮悬停 */
+/* Link button hover */
 .link-button {
   transition: all 0.3s ease;
 }

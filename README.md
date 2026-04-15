@@ -1,40 +1,36 @@
-# 摄影师作品集 + Link-in-Bio
+# SepHannah Photography Portfolio + Link-in-Bio
 
-摄影师作品集网站，集成微信、Instagram、小红书、抖音等社交媒体链接。
+Photography portfolio with WeChat, Instagram, Xiaohongshu, Douyin, and email links.
 
-## 功能
+## Features
 
-- **作品集展示**：展示摄影作品，支持分类和描述
-- **Link-in-Bio**：集中展示社交媒体链接，适配移动端
-- **纯静态配置**：无需后端，修改配置文件即可更新
+- **Portfolio grid** with categories and captions
+- **Link-in-bio** style contact blocks, mobile-friendly
+- **Booking form** — saves enquiries to **Supabase** (table `inquiries`); see `.env.example` and `supabase-inquiries.sql`
+- **Static config** — edit `src/lib/config.ts`
 
-## 快速开始
+## Quick start
 
 ```bash
-# 安装依赖
 npm install
-
-# 开发模式
 npm run dev
 ```
 
-打开 [http://localhost:3000](http://localhost:3000) 预览。
+Open [http://localhost:3000](http://localhost:3000).
 
-## 自定义配置
+## Customise
 
-编辑 `src/lib/config.ts` 修改内容：
+Edit `src/lib/config.ts`:
 
-- **photographer**：姓名、简介、头像、个人描述
-- **socialLinks**：微信、Instagram、小红书、抖音等链接
-- **portfolio**：作品列表（标题、描述、图片 URL、分类）
+- **photographer** — name, tagline, bio, optional avatar
+- **socialLinks** — labels, values, URLs
+- **portfolio** — titles, descriptions, image paths, categories
 
-修改后保存，页面会自动刷新。
-
-## 部署
+## Deploy
 
 ```bash
 npm run build
 npm start
 ```
 
-可部署至 [Vercel](https://vercel.com)、Netlify 等平台，无需额外配置。
+Deploy on [Vercel](https://vercel.com), etc. Add `NEXT_PUBLIC_SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` in the project **Environment Variables** so the booking form works.

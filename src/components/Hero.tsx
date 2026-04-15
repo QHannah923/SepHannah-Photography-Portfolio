@@ -9,7 +9,7 @@ interface HeroProps {
 
 export default function Hero({ name, tagline, bio, avatarUrl }: HeroProps) {
   return (
-    <header className="text-center py-16 md:py-24">
+    <header className="text-center py-10 md:py-14">
       {avatarUrl && (
         <div className="w-28 h-28 md:w-36 md:h-36 mx-auto mb-6 rounded-full overflow-hidden border-4 border-ink-200 shadow-xl">
           <Image
@@ -28,7 +28,7 @@ export default function Hero({ name, tagline, bio, avatarUrl }: HeroProps) {
         {tagline}
       </p>
       {bio && (
-        <p className="max-w-2xl mx-auto text-ink-600 mt-6 leading-relaxed">
+        <p className="max-w-xl mx-auto text-ink-600 text-sm md:text-base mt-5 leading-relaxed">
           {bio}
         </p>
       )}
