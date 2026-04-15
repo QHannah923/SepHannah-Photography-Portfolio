@@ -16,9 +16,10 @@ export interface PortfolioItem {
   id: string;
   title: string;
   description?: string;
-   imageUrl: string;
+  imageUrl: string;
   category?: string;
   date?: string;
+  aspect?: 'portrait' | 'landscape' | 'square';
 }
 
 export interface BookingSection {
@@ -84,6 +85,7 @@ export const defaultConfig: SiteConfig = {
       imageUrl: '/graduation.JPG',
       category: 'Graduation',
       date: '2024',
+      aspect: 'portrait',
     },
     {
       id: '2',
@@ -92,6 +94,7 @@ export const defaultConfig: SiteConfig = {
       imageUrl: '/ceremony1.JPG',
       category: 'Wedding',
       date: '2024',
+      aspect: 'landscape',
     },
     {
       id: '3',
@@ -100,6 +103,7 @@ export const defaultConfig: SiteConfig = {
       imageUrl: '/ceremony3.JPG',
       category: 'Wedding',
       date: '2024',
+      aspect: 'square',
     },
     {
       id: '4',
@@ -108,6 +112,7 @@ export const defaultConfig: SiteConfig = {
       imageUrl: '/wedding.JPG',
       category: 'Wedding',
       date: '2024',
+      aspect: 'landscape',
     },
     {
       id: '5',
@@ -116,6 +121,7 @@ export const defaultConfig: SiteConfig = {
       imageUrl: '/wedding2.JPG',
       category: 'Wedding',
       date: '2024',
+      aspect: 'square',
     },
     {
       id: '6',
@@ -124,6 +130,7 @@ export const defaultConfig: SiteConfig = {
       imageUrl: '/wedding3.JPG',
       category: 'Wedding',
       date: '2024',
+      aspect: 'portrait',
     },
     {
       id: '7',
@@ -132,6 +139,7 @@ export const defaultConfig: SiteConfig = {
       imageUrl: '/portrait.JPG',
       category: 'Portrait',
       date: '2024',
+      aspect: 'square',
     },
     {
       id: '8',
@@ -140,6 +148,7 @@ export const defaultConfig: SiteConfig = {
       imageUrl: '/portrait2.JPG',
       category: 'Portrait',
       date: '2024',
+      aspect: 'portrait',
     },
     {
       id: '9',
@@ -148,6 +157,7 @@ export const defaultConfig: SiteConfig = {
       imageUrl: '/portrait3.JPG',
       category: 'Portrait',
       date: '2024',
+      aspect: 'landscape',
     },
   ],
 };

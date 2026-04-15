@@ -8,7 +8,6 @@ interface PortfolioGridProps {
   items: PortfolioItem[];
 }
 
-/** Fixed crop frames; Masonry puts each card in the shortest column (true stagger). */
 const ASPECT: Record<NonNullable<PortfolioItem['aspect']>, string> = {
   portrait: 'aspect-[3/4]',
   landscape: 'aspect-[4/3]',
