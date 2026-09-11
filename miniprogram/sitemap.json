@@ -1,0 +1,8 @@
+{
+  "desc": "仅索引公开摄影内容",
+  "rules": [
+    { "action": "disallow", "page": "pages/requests/requests" },
+    { "action": "disallow", "page": "pages/booking/booking" },
+    { "action": "allow", "page": "*" }
+  ]
+}

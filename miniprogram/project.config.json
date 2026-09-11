@@ -1,0 +1,8 @@
+{
+  "appid": "touristappid",
+  "projectname": "SepHannah-Studio",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "./",
+  "setting": { "es6": true, "minified": true, "urlCheck": true },
+  "description": "SepHannah Studio 摄影合集、档期与询单"
+}

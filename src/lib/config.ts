@@ -67,12 +67,12 @@ export const defaultConfig: SiteConfig = {
     body:
       'Your day, your story. Wedding, graduation, or a slow afternoon just for photos. Fill in the form and I will get back to you.',
     submitLabel: 'Send message',
-    ownerEmail: 'qhannah000@gmail.com',
+    ownerEmail: 'qhanna000@gmail.com',
   },
   socialLinks: [
     { id: '1', platform: 'wechat', label: 'WeChat', value: 'SepHannah', icon: 'wechat' },
     { id: '2', platform: 'instagram', label: 'Instagram', value: '@Hannah.H_Photography_Brisbane', url: 'https://instagram.com/hannah.h_photography_brisbane', icon: 'instagram' },
-    { id: '3', platform: 'email', label: 'Email', value: 'qhannah000@gmail.com', url: 'mailto:qhannah000@gmail.com', icon: 'email' },
+    { id: '3', platform: 'email', label: 'Email', value: 'qhanna000@gmail.com', url: 'mailto:qhanna000@gmail.com', icon: 'email' },
     { id: '4', platform: 'RedNotes', label: 'Xiaohongshu', value: 'Sep_小黄 / Brisbane wedding photographer Hannah', url: 'https://www.xiaohongshu.com/search_result?keyword=Sep_%E5%B0%8F%E9%BB%84', icon: 'xiaohongshu' },
     { id: '5', platform: 'Tiktok', label: 'Douyin', value: 'Sep_小黄', url: 'https://www.douyin.com/search/Sep_%E5%B0%8F%E9%BB%84', icon: 'douyin' },
   ],

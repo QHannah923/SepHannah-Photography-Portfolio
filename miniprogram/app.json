@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/gallery/gallery",
+    "pages/booking/booking",
+    "pages/requests/requests",
+    "pages/guide/guide"
+  ],
+  "window": {
+    "navigationBarTitleText": "SepHannah Studio",
+    "navigationBarBackgroundColor": "#f8f7f3",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f8f7f3"
+  },
+  "tabBar": {
+    "color": "#73776f",
+    "selectedColor": "#253423",
+    "backgroundColor": "#f8f7f3",
+    "list": [
+      { "pagePath": "pages/home/home", "text": "工作室" },
+      { "pagePath": "pages/gallery/gallery", "text": "选风格" },
+      { "pagePath": "pages/booking/booking", "text": "档期预约" },
+      { "pagePath": "pages/requests/requests", "text": "我的询单" }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

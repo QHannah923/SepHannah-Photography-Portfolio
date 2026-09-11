@@ -1,24 +1,23 @@
 /** @type {import('next').NextConfig} */
-// `next dev` loads this file with argv[2] === 'dev'. Skipping the image optimizer avoids
-// dev getting stuck on “Compiling” when processing large local JPGs.
-const isDevServer = process.argv[2] === 'dev';
-
 const nextConfig = {
-  images: {
-    unoptimized: isDevServer,
-    remotePatterns: [
+  outputFileTracingRoot: __dirname,
+  poweredByHeader: false,
+  images: { unoptimized: process.argv[2] === "dev" },
+  async headers() {
+    return [
       {
-        protocol: 'https',
-        hostname: 's3.us-west-2.amazonaws.com',
-        pathname: '/**',
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "DENY" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+        ],
       },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        pathname: '/**',
-      },
-    ],
+    ];
   },
 };
-
 module.exports = nextConfig;

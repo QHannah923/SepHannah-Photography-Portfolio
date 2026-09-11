@@ -25,3 +25,10 @@ yarn-error.log*
 .vscode
 *.swp
 *.swo
+
+# Private calendar exports and local build data
+*.ics
+*.tsbuildinfo
+.vercel
+
+miniprogram/project.private.config.json
