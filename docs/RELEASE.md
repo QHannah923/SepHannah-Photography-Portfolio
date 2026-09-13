@@ -1,4 +1,4 @@
-# Release status — 2026-09-11
+# Release status — 2026-09-13
 
 ## Confirmed
 
@@ -6,7 +6,7 @@
 - Correct Vercel project: `qhannah923s-projects/sep-hannah-photography-portfolio-qtxk`.
 - Existing GitHub repository: `QHannah923/SepHannah-Photography-Portfolio`, production branch `main`.
 - Supabase resumed; schema and calendar-import migrations applied. Work calendar snapshot imported successfully (17 future busy periods).
-- A redesign and booking-management implementation exist in the local checkout. This alone does not mean production has updated.
+- The studio redesign is live at the existing production URL. Vercel marked deployment `GhcwsrgMNTGZqF7evGcHmctfhZjV` Ready for source revision `8f7d28a779df96963148591b9d2d8c3e8db858ac`.
 
 ## Validation recorded on 2026-09-11
 
@@ -14,16 +14,16 @@
 - PostCSS pinned and overridden to 8.5.28; npm reports zero known dependency vulnerabilities.
 - Seven calendar tests passed.
 - Local production-server checks passed: private routes reject anonymous access; studio login works; malformed requests are rejected; enquiry retries return the same record and private token; status lookup omits contact data; work-calendar conflicts prevent confirmation; confirmed orders hide slots and cancellation releases them. Test fixtures removed.
-- Resend sender configuration is prepared; delivery is awaiting the production enquiry test.
+- Production verification on 2026-09-13 passed: public pages, configured admin login with Secure/HttpOnly cookies, private endpoint access control, imported work calendar, enquiry persistence, retry deduplication, private status lookup and sign-out. The labelled test record was removed.
+- Resend reported Delivered to `qhanna000@gmail.com`; Hannah independently confirmed receiving the test notification.
+- All eight settings are saved for Production. The four private values are stored as Secret, with no remaining secret-type warnings.
 
-## Required before a complete production handoff
+## Remaining studio setup
 
-1. Add `.env.example` variables to the correct Vercel project. Its Project and Shared environment-variable lists were empty when checked. The Supabase service-role key must stay server-only.
-2. Set an independent private studio password and session secret. The owner must complete new credential entry in the Vercel UI. Do not send credentials in chat or commit a filled environment file.
-3. Connect a Resend account and sender, set `RESEND_API_KEY`, `STUDIO_FROM_EMAIL`, and `STUDIO_OWNER_EMAIL`, then verify delivery to the studio inbox. Confirmed by Hannah on 2026-09-11: `qhanna000@gmail.com`. Resend account registered; a Sending access key is saved in the private local configuration. Production import is prepared for the owner. The default `onboarding@resend.dev` sender is prepared only for an initial delivery test to that same registered address; verify an owned sending domain for the finished studio setup.
-4. Local build and booking-flow checks have passed; publish the validated revision, verify deployment Ready and HTTP responses at the existing domain.
-5. Publish the actual windows Hannah wishes to open. The busy calendar is not a declaration that every other time is available.
-6. Register the studio WeChat mini program using the owner’s account, supply its AppID, configure the service domain and privacy settings, verify in Developer Tools / on-device, and submit for review. No mini program has been registered or approved yet.
+1. Publish the actual windows Hannah wishes to open at `/admin`. The busy calendar is not a declaration that every other time is available. No available windows were invented or published during launch checks.
+2. The current Resend default sender can notify the registered owner address, which has been verified end to end. Before sending customer-facing emails or switching recipients, configure an owned and verified sending domain. Automated customer email is not enabled.
+3. Website launch is prioritized; WeChat mini program work is deferred at Hannah's request. Its source is present, but it has no registered AppID, Developer Tools/on-device verification, or approval.
+4. Back-office login uses the private `STUDIO_ADMIN_PASSWORD` in the owner's `.env.local`. Do not send that password in chat or commit filled environment files. The Vercel value is now non-revealable.
 
 ## Visual and operational limitations
 
