@@ -40,3 +40,5 @@ See [Studio operating guide](docs/STUDIO-GUIDE.md) for day-to-day use and [Relea
 Import `miniprogram/` into WeChat Developer Tools. `touristappid` is a local development placeholder, not a registered studio account. A real AppID, permitted service domain, privacy declarations and platform review are required for distribution. Only a public website URL goes into `miniprogram/utils/api.js`.
 
 The mini program contains the studio introduction, photo/category/style selection, packages with film option, availability, enquiry draft/retry, private request lookup, and Chinese session/booking guidance. No WeChat Pay or automated client messaging is enabled.
+
+Mini program development handoff: [Chinese setup and device checklist](miniprogram/README.md). Run `npm run test:mini` and `npm run check:mini` for the source/logic checks; these do not replace WeChat compilation or on-device verification.

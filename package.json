@@ -11,7 +11,9 @@
     "typecheck": "tsc --noEmit",
     "test:calendar": "node --test scripts/calendar.test.mjs",
     "sync:mini": "node scripts/sync-mini-catalog.cjs",
-    "check:flows": "node scripts/check-flows.mjs"
+    "check:flows": "node scripts/check-flows.mjs",
+    "test:mini": "node --test scripts/mini.test.cjs",
+    "check:mini": "node scripts/check-mini.cjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",

@@ -32,3 +32,6 @@ yarn-error.log*
 .vercel
 
 miniprogram/project.private.config.json
+
+# Generated handoff archives
+deliverables/

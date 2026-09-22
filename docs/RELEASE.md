@@ -22,7 +22,7 @@
 
 1. Publish the actual windows Hannah wishes to open at `/admin`. The busy calendar is not a declaration that every other time is available. No available windows were invented or published during launch checks.
 2. The current Resend default sender can notify the registered owner address, which has been verified end to end. Before sending customer-facing emails or switching recipients, configure an owned and verified sending domain. Automated customer email is not enabled.
-3. Website launch is prioritized; WeChat mini program work is deferred at Hannah's request. Its source is present, but it has no registered AppID, Developer Tools/on-device verification, or approval.
+3. WeChat mini program development resumed at Hannah's request on 2026-09-22. Six pages now include reference-photo selection, a Brisbane calendar and enquiry progress. Eight logic tests and the source checks passed. There is still no registered AppID, Developer Tools/on-device verification, or platform approval. See `miniprogram/README.md` for the handoff.
 4. Back-office login uses the private `STUDIO_ADMIN_PASSWORD` in the owner's `.env.local`. Do not send that password in chat or commit filled environment files. The Vercel value is now non-revealable.
 
 ## Visual and operational limitations
@@ -41,3 +41,9 @@ These are design references, not evidence of measured SEO performance or a guara
 - [Next.js 15 upgrade guide](https://nextjs.org/docs/app/guides/upgrading/version-15)
 - [Resend Next.js integration](https://resend.com/docs/send-with-nextjs)
 - [WeChat mini program development portal](https://developers.weixin.qq.com/miniprogram/dev/framework/)
+
+## Mini program integration check — 2026-09-22
+
+- Production `/api/studio` responded successfully and all nine mini program package prices matched.
+- Production `/api/availability?month=2026-09` returned 503. A direct Supabase connectivity check failed with ENOTFOUND. The dashboard session has expired; owner login is required before the database state can be confirmed or restored. Do not treat this as a fully working live mini program integration.
+- The browser policy blocks agent interaction with `mp.weixin.qq.com`. Hannah must register the mini program herself and provide its public AppID. No AppSecret is requested.

@@ -1,1 +1,67 @@
-<view class="page"><view class="eyebrow">BRISBANE · DIGITAL + 35MM</view><view class="brand">SepHannah</view><view class="muted">把属于你的瞬间，好好留下。</view><image class="hero" src="{{hero}}" mode="aspectFill"/><view class="intro">婚纱、毕业、领证或一次属于自己的写真。一起选风格、看档期，把拍摄的细节慢慢确定下来。</view><view class="heading">你的哪一个篇章？</view><view class="chips"><button class="chip" wx:for="{{collections}}" wx:key="slug" data-slug="{{item.slug}}" bindtap="gallery">{{item.zh}} ↗</button></view><view class="card"><view class="card-title">数码 + 真实胶片</view><view class="muted">喜欢胶片的颗粒与惊喜？可在摄影套餐基础上加拍 35mm 胶片。</view><view class="price">A$100 / 卷</view><view class="muted">含冲洗；胶片有自然的不确定性。胶片感调色与真实胶片拍摄为不同选项。</view></view><button class="button" bindtap="book">查看档期与套餐 ↗</button><view class="row"><text class="small-link" bindtap="guide">拍摄须知 / 常见问题</text><text class="small-link" bindtap="contact">复制 Hannah 微信</text></view><view class="muted">常驻 Brisbane。覆盖机票与住宿，也可以出发去你所在的城市。</view></view>
+<view class="studio-cover"
+  ><image src="{{hero}}" mode="aspectFill" /><view class="cover-shade" /><view
+    class="cover-top"
+    >BRISBANE · DIGITAL &amp; FILM</view
+  ><view class="cover-copy"
+    ><view class="cover-brand">SepHannah</view
+    ><view class="cover-subtitle">让这一刻，成为你的故事。</view
+    ><button class="cover-link" bindtap="book">计划一次拍摄 ↗</button></view
+  ></view
+>
+<view class="page"
+  ><view class="eyebrow">YOUR NEXT CHAPTER</view
+  ><view class="title">为你而拍。</view
+  ><view class="muted"
+    >从毕业的欢呼，到牵手的承诺。先选喜欢的感觉，再一起确定拍摄的细节。</view
+  >
+  <view class="collection-grid"
+    ><view
+      class="collection-card"
+      wx:for="{{collections}}"
+      wx:key="slug"
+      data-slug="{{item.slug}}"
+      bindtap="gallery"
+      ><image src="{{item.src}}" mode="aspectFill" lazy-load /><view
+        class="collection-label"
+        >{{item.zh}} ↗</view
+      ><view class="muted">A${{item.price}} 起</view></view
+    ></view
+  >
+  <view class="film-note"
+    ><view class="eyebrow">SOME THINGS FEEL DIFFERENT ON FILM</view
+    ><view class="heading"
+      ><view>数码的细腻。</view><view>胶片的惊喜。</view></view
+    ><view>加拍真实 35mm 胶片，A$100 / 卷，含冲洗。</view
+    ><view class="muted space"
+      >胶片感调色与真实胶片是不同选项。喜欢光线、颗粒与偶然，就把它一起放进你的拍摄计划。</view
+    ></view
+  >
+  <view class="heading">预约，简单一点。</view
+  ><view class="journey-step"
+    ><text>01</text
+    ><view
+      >挑选风格<view class="muted">收藏喜欢的照片，让想法更具体。</view></view
+    ></view
+  ><view class="journey-step"
+    ><text>02</text
+    ><view
+      >选套餐与日期<view class="muted"
+        >查看公开时段，也可以写下偏好日期。</view
+      ></view
+    ></view
+  ><view class="journey-step"
+    ><text>03</text
+    ><view
+      >一起确认<view class="muted"
+        >Hannah 确认方案、档期和定金后完成预约。</view
+      ></view
+    ></view
+  >
+  <button class="button" bindtap="book">查看套餐与档期 ↗</button
+  ><view class="row"
+    ><text class="small-link" bindtap="guide">拍摄须知 / 常见问题</text
+    ><text class="small-link" bindtap="contact">复制 Hannah 微信</text></view
+  ><view class="muted"
+    >常驻 Brisbane。覆盖机票与住宿，也可以出发去你所在的城市。</view
+  ></view
+>

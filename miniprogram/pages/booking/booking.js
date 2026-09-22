@@ -1,5 +1,7 @@
 const catalog = require("../../utils/catalog");
 const api = require("../../utils/api");
+const calendar = require("../../utils/calendar");
+const selection = require("../../utils/selection");
 const sessions = [
   { id: "wedding", name: "婚纱 / 婚礼" },
   { id: "graduation", name: "毕业写真" },
@@ -19,6 +21,13 @@ Page({
     price: 0,
     month: api.monthKey(),
     slots: [],
+    days: [],
+    daySlots: [],
+    selectedDay: "",
+    weekdays: ["一", "二", "三", "四", "五", "六", "日"],
+    references: [],
+    minMonth: api.monthKey(),
+    maxMonth: `${new Date().getFullYear() + 2}-12`,
     slotId: "",
     slotLabel: "",
     loading: false,
@@ -48,7 +57,10 @@ Page({
   },
   onShow() {
     const s = getApp().globalData.selection;
-    if (s.session || s.style) {
+    if (
+      Object.prototype.hasOwnProperty.call(s, "session") ||
+      Object.prototype.hasOwnProperty.call(s, "style")
+    ) {
       const index = sessions.findIndex((x) => x.id === s.session);
       this.setData({
         ...(index >= 0 ? { sessionIndex: index, packageIndex: 0 } : {}),
@@ -60,16 +72,29 @@ Page({
       getApp().globalData.selection = {};
       this.syncPackages();
     }
+    this.setData({ references: selection.describe(selection.read()) });
     this.loadDates();
   },
   syncPackages() {
+    const sessionIndex = Math.max(
+      0,
+      Math.min(sessions.length - 1, Number(this.data.sessionIndex) || 0),
+    );
+    this.setData({ sessionIndex });
     const list = catalog.packages.filter(
       (p) => p.group === sessions[this.data.sessionIndex].id,
     );
-    const idx = Math.min(this.data.packageIndex, list.length - 1);
+    const idx = Math.max(
+      0,
+      Math.min(Number(this.data.packageIndex) || 0, list.length - 1),
+    );
     this.setData({
       packages: list,
       packageIndex: idx,
+      styleIndex: Math.max(
+        0,
+        Math.min(catalog.styles.length, Number(this.data.styleIndex) || 0),
+      ),
       packageLabels: list.map(
         (p) => p.zh + " · " + (p.from ? "起价 " : "") + "A$" + p.price,
       ),
@@ -99,48 +124,132 @@ Page({
     this.setData({ consent: e.detail.value.includes("yes") });
   },
   month(e) {
-    this.setData({ month: e.detail.value, slotId: "", slotLabel: "" });
+    this.setMonth(e.detail.value);
+  },
+  setMonth(month) {
+    if (month < this.data.minMonth || month > this.data.maxMonth) return;
+    this.setData({
+      month,
+      slotId: "",
+      slotLabel: "",
+      selectedDay: "",
+      daySlots: [],
+    });
     this.loadDates();
+  },
+  previousMonth() {
+    this.setMonth(calendar.shiftMonth(this.data.month, -1));
+  },
+  nextMonth() {
+    this.setMonth(calendar.shiftMonth(this.data.month, 1));
   },
   async loadDates() {
     const month = this.data.month;
-    this.setData({ loading: true, calendarError: "" });
+    const loadId = (this.dateLoadId = (this.dateLoadId || 0) + 1);
+    this.setData({
+      loading: true,
+      calendarError: "",
+      slots: [],
+      days: calendar.buildMonth(month, []).cells,
+      daySlots: [],
+    });
     try {
       const d = await api.request("/api/availability?month=" + month);
-      if (month === this.data.month)
-        this.setData({
-          slots: d.slots.map((s) => ({
-            ...s,
-            label:
-              api.timeLabel(s.starts_at) +
-              " – " +
-              api.timeLabel(s.ends_at).slice(11),
-          })),
-        });
+      if (loadId !== this.dateLoadId) return;
+      const grid = calendar.buildMonth(month, d.slots);
+      const slots = grid.slots.map((s) => ({
+        ...s,
+        day: calendar.dayKey(Date.parse(s.starts_at)),
+        label:
+          api.timeLabel(s.starts_at) +
+          " – " +
+          api.timeLabel(s.ends_at).slice(11),
+      }));
+      const selectedSlot = slots.find((s) => s.id === this.data.slotId);
+      const lost = this.data.slotId && !selectedSlot;
+      const day = selectedSlot
+        ? selectedSlot.day
+        : slots.some((s) => s.day === this.data.selectedDay)
+          ? this.data.selectedDay
+          : slots[0]
+            ? slots[0].day
+            : "";
+      this.setData({
+        slots,
+        days: grid.cells,
+        selectedDay: day,
+        daySlots: slots.filter((s) => s.day === day),
+        ...(lost
+          ? {
+              slotId: "",
+              slotLabel: "",
+              error: "之前选择的时段已不可用，请重新选择或填写偏好日期。",
+            }
+          : {}),
+      });
     } catch (e) {
-      if (month === this.data.month)
+      if (loadId === this.dateLoadId)
         this.setData({ slots: [], calendarError: e.message });
     } finally {
-      if (month === this.data.month) this.setData({ loading: false });
+      if (loadId === this.dateLoadId) this.setData({ loading: false });
     }
   },
-  selectSlot(e) {
+  selectDay(e) {
+    const selectedDay = e.currentTarget.dataset.day;
     this.setData({
-      slotId: e.currentTarget.dataset.id,
-      slotLabel: e.currentTarget.dataset.label,
+      selectedDay,
+      daySlots: this.data.slots.filter((s) => s.day === selectedDay),
+      slotId: "",
+      slotLabel: "",
     });
+  },
+  selectSlot(e) {
+    if (this.data.loading || this.data.calendarError) return;
+    const slot = this.data.slots.find(
+      (s) => s.id === e.currentTarget.dataset.id,
+    );
+    if (slot) this.setData({ slotId: slot.id, slotLabel: slot.label });
   },
   clearSlot() {
     this.setData({ slotId: "", slotLabel: "" });
+  },
+  editReferences() {
+    wx.switchTab({ url: "/pages/gallery/gallery" });
+  },
+  removeReference(e) {
+    try {
+      this.setData({
+        references: selection.describe(
+          selection.write(
+            this.data.references
+              .map((p) => p.id)
+              .filter((id) => id !== e.currentTarget.dataset.id),
+          ),
+        ),
+      });
+    } catch {
+      this.setData({ error: "无法保存参考照片选择，请检查微信存储空间。" });
+    }
+  },
+  privacy() {
+    wx.navigateTo({ url: "/pages/privacy/privacy" });
   },
   guide() {
     wx.navigateTo({ url: "/pages/guide/guide" });
   },
   async submit() {
     if (this.data.sending) return;
-    const d = this.data;
+    const d = { ...this.data };
     if (!d.name.trim() || !d.wechat.trim() || !d.consent) {
       this.setData({ error: "请填写姓名、微信号，并同意询单隐私说明。" });
+      return;
+    }
+    if (d.slotId && (d.loading || d.calendarError)) {
+      this.setData({ error: "请先刷新档期，或取消所选时段后填写偏好日期。" });
+      return;
+    }
+    if (d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim())) {
+      this.setData({ error: "请填写有效邮箱，或留空并通过微信联系。" });
       return;
     }
     const payload = {
@@ -153,12 +262,19 @@ Page({
       film: d.film,
       location: d.location,
       preferredDates: d.preferredDates,
-      message: d.message,
+      message: selection.message(
+        d.message,
+        d.references.map((p) => p.id),
+      ),
       consent: true,
       contactMethod: "wechat",
       source: "miniprogram",
       slotId: d.slotId,
     };
+    if (payload.message.length > 4000) {
+      this.setData({ error: "拍摄想法过长，请缩短后重试。" });
+      return;
+    }
     const serialized = JSON.stringify(payload);
     this.setData({ sending: true, error: "" });
     try {
@@ -183,6 +299,7 @@ Page({
       "film",
       "slotId",
       "slotLabel",
+      "month",
     ].forEach((k) => (fields[k] = d[k]));
     try {
       wx.setStorageSync("studioDraft", {
@@ -215,6 +332,10 @@ Page({
       }
     } catch (e) {
       this.setData({ error: e.message });
+      if (e.status === 409) {
+        this.clearSlot();
+        this.loadDates();
+      }
     } finally {
       this.setData({ sending: false });
     }

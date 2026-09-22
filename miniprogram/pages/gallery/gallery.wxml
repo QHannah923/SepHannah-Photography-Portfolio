@@ -1,1 +1,69 @@
-<view class="page"><view class="eyebrow">FIND YOUR FEELING</view><view class="title">先选心动的感觉。</view><view class="chips"><button class="chip {{collection===item.slug?'active':''}}" wx:for="{{collections}}" wx:key="slug" data-id="{{item.slug}}" bindtap="chooseCollection">{{item.zh}}</button></view><view class="chips"><button class="chip {{style===item.id?'active':''}}" wx:for="{{styles}}" wx:key="id" data-id="{{item.id}}" bindtap="chooseStyle">{{item.zh}}</button></view><view class="gallery"><view class="photo" wx:for="{{photos}}" wx:key="id"><image src="{{item.src}}" mode="aspectFill" lazy-load data-src="{{item.src}}" bindtap="preview"/></view></view><view wx:if="{{!photos.length}}" class="notice">这个组合暂未公开样片，可以切换风格，或向 Hannah 询问更多作品。</view><button class="button" bindtap="book">带着这个风格，计划拍摄 ↗</button><view class="muted space">风格分类用于沟通方向，具体效果取决于光线、场地与造型。可以在询单中补充喜欢的参考。</view></view>
+<view class="page gallery-page">
+  <view class="eyebrow">THE WAY YOU FEEL</view
+  ><view class="title"><view>找到你的</view><view>心动风格。</view></view>
+  <scroll-view scroll-x class="filter-scroll"
+    ><view class="filter-line"
+      ><button
+        class="chip {{collection===item.slug?'active':''}}"
+        wx:for="{{collections}}"
+        wx:key="slug"
+        data-id="{{item.slug}}"
+        bindtap="chooseCollection"
+      >
+        {{item.zh}}
+      </button></view
+    ></scroll-view
+  >
+  <view class="chips"
+    ><button
+      class="chip {{style===item.id?'active':''}}"
+      wx:for="{{styles}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="chooseStyle"
+    >
+      {{item.zh}}
+    </button></view
+  >
+  <view class="muted style-description">{{description}}</view>
+  <view class="row gallery-toolbar"
+    ><text>{{onlySelected?'我的参考':'作品精选'}} · {{photos.length}}</text
+    ><button class="text-button" bindtap="showSelected">
+      {{onlySelected?'查看全部':'已选 '+selected.length+'/6'}}
+    </button></view
+  >
+  <view wx:if="{{error}}" class="notice error">{{error}}</view>
+  <view class="gallery"
+    ><view class="photo-card" wx:for="{{photos}}" wx:key="id"
+      ><image
+        src="{{item.src}}"
+        mode="aspectFill"
+        lazy-load
+        data-src="{{item.src}}"
+        bindtap="preview"
+      /><view class="photo-caption"
+        ><text>{{item.label}}</text
+        ><button
+          class="save-photo {{item.selected?'selected':''}}"
+          data-id="{{item.id}}"
+          bindtap="toggle"
+          aria-label="{{item.selected?'移除参考照片':'收藏参考照片'}}"
+        >
+          {{item.selected?'已选 ✓':'收藏 +'}}
+        </button></view
+      ></view
+    ></view
+  >
+  <view wx:if="{{!photos.length}}" class="notice"
+    >{{onlySelected?'还没有收藏照片。点作品下方的收藏，带着喜欢的画面来聊。':'这个组合暂未公开样片，可以切换风格或向
+    Hannah 询问。'}}</view
+  >
+  <view class="selection-bar"
+    ><view
+      ><view>你的拍摄灵感</view
+      ><view class="muted"
+        >{{selected.length}} 张参考作品 · 随询单发送</view
+      ></view
+    ><button class="button" bindtap="book">去选套餐 ↗</button></view
+  >
+</view>

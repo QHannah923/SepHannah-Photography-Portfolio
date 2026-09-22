@@ -1,0 +1,31 @@
+<view class="page privacy-copy"
+  ><view class="eyebrow">YOUR DETAILS, WITH CARE</view
+  ><view class="title">询单隐私说明</view
+  ><view class="muted">更新日期：2026 年 9 月 22 日</view>
+  <view class="heading">你提交的信息</view
+  ><view
+    >发起询单时，我们收集你填写的姓名、微信号、可选邮箱、拍摄类型、套餐、偏好风格、参考作品、日期、地点和补充想法，用于回复询单、安排拍摄和管理订单。浏览作品不需要提交这些资料。</view
+  >
+  <view class="heading">资料会去哪里</view
+  ><view
+    >询单通过加密连接发送到工作室网站服务，使用 Vercel 托管、Supabase
+    保存订单，并通过 Resend
+    通知工作室邮箱。这些服务可能在中国大陆以外处理资料。工作室不会把其他客户的姓名、联系方式或日历备注展示给你。</view
+  >
+  <view class="heading">你的手机会保存什么</view
+  ><view
+    >收藏的参考作品保存在本机。你同意并提交询单时，本机会保存填写内容及提交编号，用于断网重试；提交成功后删除该草稿并保存私人查询码。查询码可以查看该询单的进度、日期和报价，请勿公开分享。小程序不会自动读取你的手机日历、位置或通讯录。</view
+  >
+  <view class="heading">修改与删除</view
+  ><view
+    >在「我的询单」可以移除本机查询码；这不会取消预约或删除工作室的订单记录。如需更正资料、取消预约或申请删除已提交信息，请联系
+    Hannah。订单信息按完成服务、处理后续问题及适用记录要求的需要保留。</view
+  >
+  <view class="heading">照片展示另行沟通</view
+  ><view
+    >提交询单不代表同意把你的拍摄成片公开展示。是否可用于工作室作品集、社交平台，请在预约时单独沟通。</view
+  >
+  <button class="button" bindtap="contact">
+    联系 Hannah：{{studio.wechat}}</button
+  ><view class="muted space" selectable>邮箱：{{studio.email}}</view></view
+>

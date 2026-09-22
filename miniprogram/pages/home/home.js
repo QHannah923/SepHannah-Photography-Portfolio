@@ -2,8 +2,16 @@ const catalog = require("../../utils/catalog");
 Page({
   data: {
     studio: catalog.studio,
-    hero: catalog.photos[0].src,
-    collections: catalog.collections,
+    hero: catalog.photos.find((p) => p.id === "wedding2").src,
+    collections: catalog.collections.map((c) => ({
+      ...c,
+      src: catalog.photos.find((p) => p.id === c.image).src,
+      price: Math.min(
+        ...catalog.packages
+          .filter((p) => p.group === c.session)
+          .map((p) => p.price),
+      ),
+    })),
   },
   gallery(e) {
     getApp().globalData.selection = {
@@ -19,5 +27,11 @@ Page({
   },
   contact() {
     wx.setClipboardData({ data: catalog.studio.wechat });
+  },
+  onShareAppMessage() {
+    return {
+      title: "SepHannah Studio · 在 Brisbane，留住你的故事",
+      path: "/pages/home/home",
+    };
   },
 });

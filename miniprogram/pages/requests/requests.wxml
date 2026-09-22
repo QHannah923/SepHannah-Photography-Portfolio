@@ -1,1 +1,62 @@
-<view class="page"><view class="eyebrow">YOUR NEXT CHAPTER</view><view class="title">每一步，都有着落。</view><view class="muted">这里显示本机保存的询单。换手机后，可通过私人查询码重新添加；查询码请勿公开分享。</view><view class="label">添加已有询单</view><input value="{{input}}" bindinput="input" maxlength="64" placeholder="粘贴完整私人查询码"/><button class="button" bindtap="add" disabled="{{loading}}">添加并查看</button><view wx:if="{{error}}" class="notice error">{{error}}</view><view wx:if="{{loading}}" class="notice">正在更新询单…</view><view wx:if="{{!loading &amp;&amp; !saved.length}}" class="notice">还没有保存的询单。提交拍摄计划后，就能在这里查看进展。</view><view class="card" wx:for="{{saved}}" wx:key="token"><block wx:if="{{item.order}}"><view class="eyebrow">{{item.order.id}}</view><view class="card-title">{{item.label}}</view><view>{{item.date}} · Brisbane 时间</view><view class="muted">报价：{{item.order.quote_amount==null?'待确认':'A$'+item.order.quote_amount}}</view><view class="muted">已记录定金：A${{item.order.deposit_paid||0}}</view><view wx:if="{{item.order.film}}" class="muted">已选择真实 35mm 胶片</view></block><view wx:else class="error">{{item.error}}</view><view class="row"><text class="small-link" data-token="{{item.token}}" bindtap="copy">复制查询码</text><text class="small-link" data-token="{{item.token}}" bindtap="forget">从本机移除</text></view></view><text class="small-link" bindtap="load">刷新进展</text></view>
+<view class="page"
+  ><view class="eyebrow">YOUR NEXT CHAPTER</view
+  ><view class="title">你的拍摄，<view>正在发生。</view></view
+  ><view class="muted"
+    >从询单到交付，在这里查看进展。换手机后可用私人查询码找回，请勿公开分享查询码。</view
+  >
+  <view wx:if="{{loading}}" class="notice">正在更新进展…</view
+  ><view wx:if="{{error}}" class="notice error">{{error}}</view>
+  <view wx:if="{{!loading &amp;&amp; !saved.length}}" class="empty-state"
+    ><view class="card-title">故事，从一个想法开始。</view
+    ><view class="muted">选好喜欢的风格，发来你的拍摄计划。</view
+    ><button class="button" bindtap="book">计划我的拍摄 ↗</button></view
+  >
+  <view class="card" wx:for="{{saved}}" wx:key="token"
+    ><block wx:if="{{item.order}}"
+      ><view class="status-badge">{{item.label}}</view
+      ><view class="card-title">{{item.packageLabel}}</view
+      ><view>{{item.date}}</view><view class="muted">Brisbane 时间</view
+      ><view wx:if="{{item.order.status!=='cancelled'}}" class="progress-track"
+        ><view
+          class="progress-step {{step.done?'done':''}}"
+          wx:for="{{item.steps}}"
+          wx:for-item="step"
+          wx:key="id"
+          >{{step.label}}</view
+        ></view
+      ><view wx:else class="notice">如需重新安排，请联系 Hannah 确认。</view
+      ><view class="row"
+        ><text>确认报价</text
+        ><text
+          >{{item.order.quote_amount==null?'待确认':'A$'+item.order.quote_amount}}</text
+        ></view
+      ><view class="row muted"
+        ><text>已记录定金</text
+        ><text>A${{item.order.deposit_paid||0}}</text></view
+      ><view wx:if="{{item.order.film}}" class="muted"
+        >包含加拍真实 35mm 胶片</view
+      ><view class="muted space"
+        >状态由工作室更新。如需更改日期或方案，请联系 Hannah。</view
+      ></block
+    ><view wx:else class="notice error">{{item.error}}</view
+    ><view class="row"
+      ><text class="small-link" data-token="{{item.token}}" bindtap="copy"
+        >复制查询码</text
+      ><text class="small-link" data-token="{{item.token}}" bindtap="forget"
+        >从本机移除</text
+      ></view
+    ></view
+  >
+  <view class="section-number">找回已有询单</view
+  ><input
+    value="{{input}}"
+    bindinput="input"
+    maxlength="64"
+    placeholder="粘贴完整私人查询码"
+  /><button class="button" bindtap="add" disabled="{{loading}}">
+    添加并查看</button
+  ><view class="row"
+    ><text class="small-link" bindtap="load">刷新进展</text
+    ><text class="small-link" bindtap="contact">联系 Hannah</text></view
+  ></view
+>
