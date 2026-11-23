@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import PageIntro from "@/components/PageIntro";
-import { collections, pageMetadata } from "@/lib/studio";
+import Gallery from "@/components/Gallery";
+import { collections, photos, pageMetadata } from "@/lib/studio";
 export const metadata = pageMetadata(
   "Photography Collections in Brisbane",
   "Explore wedding, graduation, registry ceremony and portrait photography by Brisbane photographer Hannah.",
@@ -24,7 +25,7 @@ export default function Page() {
             >
               <div className="collection-image">
                 <Image
-                  src={"/images/" + c.image + ".jpg"}
+                  src={c.slug === "weddings" ? "/images/stories/just-married.webp" : c.slug === "registry" ? "/images/stories/city-walk.webp" : "/images/" + c.image + ".jpg"}
                   alt={c.name + " by SepHannah Studio"}
                   fill
                   sizes="(max-width: 760px) 100vw, 33vw"
@@ -37,6 +38,10 @@ export default function Page() {
             </Link>
           ))}
         </div>
+        <section className="portfolio-selection">
+          <div className="section-heading"><div><p className="eyebrow">THE PHOTOGRAPHS</p><h2>Days lived.<br /><em>Feelings kept.</em></h2></div><p>Explore the full selection, choose a visual style, or open a photograph to see the details. Every photograph here is from Hannah’s own work.</p></div>
+          <Gallery photos={photos} />
+        </section>
         <div className="inline-links">
           <Link className="text-link" href="/styles">
             Explore by photographic style ↗

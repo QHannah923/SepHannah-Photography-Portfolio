@@ -1,0 +1,68 @@
+.site-header.site-header-immersive { position: absolute; inset: 0 0 auto; z-index: 20; color: white; border: 0; background: linear-gradient(180deg,#101b14a6,transparent); padding-block: 28px 48px; }
+.site-header.site-header-immersive .wordmark { font-size: 27px; }
+.site-header.site-header-immersive .wordmark span { color: #f4f4ec; }
+.site-header.site-header-immersive .button { background: #ffffff10; border-color: #ffffff75; color: white; }
+.site-header.site-header-immersive :is(a,button):focus-visible { outline-color: white; }
+.studio-hero { min-height: 800px; height: 100svh; max-height: 1250px; position: relative; isolation: isolate; overflow: hidden; background: #25382c; color: #fff; display: flex; flex-direction: column; justify-content: flex-end; padding: 160px 5% 35px; }
+.studio-hero-photograph, .studio-hero-shade { position: absolute; inset: 0; z-index: -2; }
+.studio-hero-photograph img { object-fit: cover; object-position: 65% 48%; }
+.studio-hero-shade { z-index: -1; background: linear-gradient(90deg,rgba(8,21,14,.73),rgba(8,21,14,.32) 48%,rgba(8,21,14,.02) 80%),linear-gradient(0deg,rgba(8,21,14,.6),transparent 45%); }
+.studio-hero-copy { margin: auto 0; max-width: 850px; padding-block: 50px; }
+.studio-hero-copy .eyebrow { color: #f4f5e9; font-size: 11px; letter-spacing: .18em; }
+.studio-hero h1 { font-size: clamp(3.5rem,6.3vw,6.7rem); line-height: 1.04; font-weight: 400; letter-spacing: -.052em; margin: 25px 0 28px; text-wrap: balance; }
+.studio-hero h1 em { font-weight: 400; }
+.studio-hero-description { color: #f6f6f0; font-size: 16px; line-height: 1.8; max-width: 430px; text-shadow: 0 1px 12px #0005; }
+.studio-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 35px; }
+.studio-hero-actions .button { background: #f5f4ed; color: #263529; border-color: #f5f4ed; }
+.studio-hero-actions .button:hover { background: white; }
+.studio-hero-enquire { color: white; font-size: 13px; border-bottom: 1px solid #ffffff80; padding: 10px 0; }
+.glass-collections { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); background: rgba(31,48,38,.68); border: 1px solid #ffffff50; border-radius: 4px; overflow: hidden; flex-shrink: 0; }
+@supports ((backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px))) { .glass-collections { background: rgba(224,234,222,.13); -webkit-backdrop-filter: blur(22px) saturate(125%); backdrop-filter: blur(22px) saturate(125%); } }
+.glass-collections a { display: flex; gap: 18px; align-items: center; min-height: 94px; padding: 20px 28px; transition: background .3s ease; border-right: 1px solid #ffffff38; }
+.glass-collections a:last-child { border-right: 0; }
+.glass-collections a:hover, .glass-collections a:focus-visible { background: #ffffff20; }
+.glass-collections a:focus-visible { outline: 2px solid white; outline-offset: -5px; }
+.glass-collections strong { font: 400 27px/1.2 Georgia,serif; letter-spacing: -.025em; }
+.glass-collections span { font-size: 11px; color: #f0f3eb; }
+.glass-collections span:last-child { margin-left: auto; font-size: 20px; }
+.camera-focus { display: none; position: absolute; left: 0; top: 0; pointer-events: none; z-index: 3; opacity: 0; transition: opacity .2s; }
+.camera-focus > span { display: block; position: absolute; width: 64px; height: 44px; left: -32px; top: -22px; border: 1px solid #fffffff0; border-radius: 8px; box-shadow: 0 0 0 1px #0002; }
+.camera-focus > span::before, .camera-focus > span::after { content: ""; position: absolute; background: #fff; left: 50%; top: 50%; transform: translate(-50%,-50%); }
+.camera-focus > span::before { width: 12px; height: 1px; }
+.camera-focus > span::after { width: 1px; height: 12px; }
+.camera-focus small { position: absolute; left: -65px; top: 30px; width: 130px; text-align: center; font-size: 8px; letter-spacing: .15em; color: white; text-shadow: 0 1px 5px #000; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) { .camera-focus { display: block; } .camera-focus[data-visible="true"] { opacity: .85; } }
+@media (max-width: 1000px) { .glass-collections a { padding: 20px; gap: 12px; } .glass-collections strong { font-size: 23px; } .studio-hero h1 { font-size: clamp(3.5rem,7vw,5.8rem); } }
+@media (max-width: 760px) {
+  .site-header.site-header-immersive { padding-block: 24px; }
+  .site-header-immersive .navigation.open { background: #29382d; color: white; }
+  .studio-hero { min-height: 780px; height: 100svh; max-height: none; padding: 120px 6% 24px; }
+  .studio-hero-photograph img { object-position: 67% 50%; }
+  .studio-hero-shade { background: linear-gradient(0deg,#122318e6,rgba(13,32,21,.5) 55%,rgba(13,32,21,.12)); }
+  .studio-hero-copy { margin-top: auto; margin-bottom: 0; padding: 80px 0 32px; }
+  .studio-hero h1 { font-size: clamp(2.8rem,9.5vw,4.7rem); line-height: 1.05; margin: 20px 0; }
+  .studio-hero-copy .eyebrow { font-size: 9px; letter-spacing: .12em; }
+  .studio-hero-description { font-size: 14px; }
+  .studio-hero-actions { margin-top: 24px; gap: 12px 20px; }
+  .studio-hero-actions .button { font-size: 12px; padding: 13px 18px; }
+  .studio-hero-enquire { font-size: 12px; }
+  .glass-collections { grid-template-columns: 1fr 1fr; }
+  .glass-collections a { min-height: 65px; padding: 15px; }
+  .glass-collections strong { font-size: 20px; }
+  .glass-collections a:nth-child(2) { border-right: 0; }
+  .glass-collections a:nth-child(-n+2) { border-bottom: 1px solid #ffffff38; }
+}
+@media (prefers-reduced-motion: reduce) { .glass-collections a { transition: none; } }
+
+.site-header-immersive .navigation.open { background: #29382d; color: white; }
+@media (max-width: 760px) {
+  .studio-hero-photograph { bottom: auto; height: 72%; }
+  .studio-hero-photograph img { object-position: 50% 50%; }
+  .glass-collections a { gap: 8px; }
+  .glass-collections a > span:first-child { display: none; }
+  .glass-collections strong { font-size: 19px; }
+  .glass-collections span:last-child { font-size: 17px; }
+}
+@media (max-width: 760px) {
+  .studio-hero-photograph::after { content: ""; position: absolute; inset: auto 0 0; height: 22%; background: linear-gradient(transparent,#25382c); }
+}

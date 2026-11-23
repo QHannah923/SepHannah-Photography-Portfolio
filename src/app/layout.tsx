@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { studio } from "@/lib/studio";
 import SiteHeader from "@/components/SiteHeader";
 import "./globals.css";
 export const metadata: Metadata = {
@@ -36,11 +37,11 @@ export default function RootLayout({
             </Link>
             <div className="footer-links">
               <a
-                href="https://instagram.com/hannah.h_photography_brisbane"
+                href={studio.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Instagram ↗
+                Instagram · {studio.instagramHandle} ↗
               </a>
               <Link href="/inquire">WeChat / Contact ↗</Link>
               <a href="mailto:qhanna000@gmail.com">Email Hannah ↗</a>
@@ -52,6 +53,8 @@ export default function RootLayout({
               reserved.
             </span>
             <Link href="/booking-status">My requests</Link>
+            <Link href="/#questions">Q&A</Link>
+            <Link href="/#client-stories">Client stories</Link>
             <Link href="/privacy">Privacy</Link>
             <span>Real people. Beautifully remembered.</span>
           </div>

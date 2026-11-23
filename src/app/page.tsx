@@ -1,5 +1,6 @@
 import Image from "next/image";
-import DominoHero from "@/components/DominoHero";
+import { StorySection, CollectionFeature, ClientWords, HomeFAQ, HomeContact } from "@/components/HomeEditorial";
+import StudioHero from "@/components/StudioHero";
 import Link from "next/link";
 import { pageMetadata, siteUrl, studio } from "@/lib/studio";
 export const metadata = pageMetadata(
@@ -13,10 +14,11 @@ const structuredData = {
   name: studio.name,
   url: siteUrl,
   email: studio.email,
+  sameAs: [studio.instagram],
   description:
     "Wedding, graduation, registry and portrait photography based in Brisbane.",
   areaServed: { "@type": "City", name: "Brisbane" },
-  image: siteUrl + "/images/wedding.jpg",
+  image: siteUrl + "/images/stories/just-married.webp",
 };
 export default function HomePage() {
   return (
@@ -25,7 +27,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <DominoHero />
+      <StudioHero />
       <div className="intro-strip">
         <span>BRISBANE, AUSTRALIA</span>
         <span>Digital &amp; 35mm film</span>
@@ -89,6 +91,7 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+      <StorySection />
       <section className="studio-band">
         <div>
           <p className="eyebrow">
@@ -115,6 +118,7 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+      <CollectionFeature />
       <section className="home-film">
         <div className="home-film-image">
           <Image
@@ -193,17 +197,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-      <section className="section closing">
-        <p className="eyebrow">LET’S MAKE SOMETHING PERSONAL</p>
-        <h2>
-          Your next chapter
-          <br />
-          <em>starts here.</em>
-        </h2>
-        <Link className="button" href="/inquire">
-          Tell me your story ↗
-        </Link>
-      </section>
+      <ClientWords />
+      <HomeFAQ />
+      <HomeContact />
     </main>
   );
 }

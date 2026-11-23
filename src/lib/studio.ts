@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import storyPhotos from "./story-photos.json";
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   "https://sep-hannah-photography-portfolio-qt.vercel.app";
@@ -6,6 +7,8 @@ export const studio = {
   name: "SepHannah Studio",
   email: "qhanna000@gmail.com",
   wechat: "SepHannah",
+  instagram: "https://www.instagram.com/sephannahstudio/",
+  instagramHandle: "@sephannahstudio",
   city: "Brisbane",
   timezone: "Australia/Brisbane",
 };
@@ -94,8 +97,11 @@ export type Photo = {
   alt: string;
   collection: string;
   styles: string[];
+  width?: number;
+  height?: number;
 };
 export const photos: Photo[] = [
+  ...storyPhotos,
   {
     id: "wedding",
     src: "/images/wedding.jpg",

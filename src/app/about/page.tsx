@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
+import EditorialFeature from "@/components/EditorialFeature";
 import { pageMetadata } from "@/lib/studio";
 export const metadata = pageMetadata(
   "Meet Hannah, Brisbane Photographer",
@@ -14,6 +15,7 @@ export default function Page() {
         stories people carry with them.
       </PageIntro>
       <div className="page-content">
+        <EditorialFeature image="/images/stories/walking-together.webp" alt="A bride and groom laughing together during their wedding portraits" eyebrow="THE WAY I SEE IT" title="Room for the real moments."><p>I photograph weddings, engagements, graduations, families and personal portraits. Before we meet, I’d love to hear who’s coming, where you feel at home and which photographs you’d love to keep.</p><p>I’ll help you find good light and give you something natural to do together. There’s always room for a laugh, a quiet moment or a change of plan.</p><p>English and Mandarin are both welcome. Based in Brisbane, available to travel.</p><Link className="text-link" href="/inquire">Tell me a little about you ↗</Link></EditorialFeature>
         <div className="prose">
           <h2>Space to be yourself.</h2>
           <p>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
+import EditorialFeature from "@/components/EditorialFeature";
 import { pageMetadata } from "@/lib/studio";
 export const metadata = pageMetadata(
   "Photography Scene Styling & Location Ideas Brisbane",
@@ -14,6 +15,7 @@ export default function Page() {
         you want to remember the day.
       </PageIntro>
       <div className="page-content">
+        <EditorialFeature image="/images/stories/garden-ceremony.webp" alt="A lakeside wedding ceremony with white chairs and a floral arch" eyebrow="SETTING THE FEELING" title="Let the place become part of it."><p>Soft garden light, a familiar city street, flowers that echo your outfit. The best setting gives your photographs a sense of place while keeping the attention on you.</p><p>Share a mood board or a favourite photograph. I can help suggest locations, colours and small details, and discuss suppliers where your plans need them.</p><Link className="text-link" href="/inquire?interest=scene-styling">Plan your setting ↗</Link></EditorialFeature>
         <div className="cards">
           {[
             [

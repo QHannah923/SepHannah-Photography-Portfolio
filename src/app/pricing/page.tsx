@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
 import PackageSelector from "@/components/PackageSelector";
+import EditorialFeature from "@/components/EditorialFeature";
 import { faqs, pageMetadata, packages, siteUrl } from "@/lib/studio";
 export const metadata = pageMetadata(
   "Photography Prices & Packages Brisbane",
@@ -18,6 +19,11 @@ export default function Page() {
         starting point and we’ll plan the details together.
       </PageIntro>
       <div className="page-content">
+        <EditorialFeature image="/images/stories/garden-reflections.webp" alt="A bride and groom walking beside a reflecting pool in a tropical garden" eyebrow="THE INVESTMENT" title="Photographs to come back to."><p>Choose a starting point below, then tell me what matters to you. We’ll shape the time, locations and style around your plans, whether it’s a quiet registry ceremony or a day with everyone you love.</p><p>All prices are in Australian dollars. Travel, venue costs and extra styling are confirmed in your quote, so you can decide with the full picture.</p><Link className="text-link" href="/availability">Explore available dates ↗</Link></EditorialFeature>
+        <section className="tailored-package">
+          <div><p className="eyebrow">AS SEEN IN OUR STUDIO BROCHURE</p><h2>Photography + makeup.<br /><em>Made for you.</em></h2></div>
+          <div><p className="price">Tailored packages from A$999</p><p>Tell us your date, location and the look you have in mind. Your personalised quote confirms photography coverage, makeup and all inclusions. The dedicated sessions below offer other ways to plan your photographs.</p><Link className="text-link" href="/inquire?session=wedding">Request your tailored quote ↗</Link></div>
+        </section>
         <PackageSelector />
         <section className="film-feature">
           <p className="eyebrow">TWO WAYS TO REMEMBER</p>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
+import EditorialFeature from "@/components/EditorialFeature";
 import { pageMetadata } from "@/lib/studio";
 export const metadata = pageMetadata(
   "Makeup & Styling for Photography Brisbane",
@@ -17,6 +18,12 @@ export default function Page() {
         together.
       </PageIntro>
       <div className="page-content">
+        <EditorialFeature image="/images/stories/bridal-preparations.webp" alt="A bride smiling during makeup preparations in front of a lit mirror" eyebrow="BEAUTY, ON YOUR TERMS" title="A look that belongs to you.">
+          <p>Your skin, your features and the way you want to feel are our starting point. Our collaborating makeup artist helps shape a look around you, from fresh and understated to something more defined.</p>
+          <p>Share your outfit, a few references and your photography style. We’ll bring the makeup, hair and photographs into one considered plan.</p>
+          <ol className="editorial-steps"><li><strong>Share your references.</strong> Tell us what you love, and what you prefer to avoid.</li><li><strong>Make it personal.</strong> Discuss skin sensitivities, hair, outfit and the finish you feel best in.</li><li><strong>Plan the timing.</strong> We’ll confirm preparation time, location and artist availability before booking.</li></ol>
+          <Link className="text-link" href="/inquire?interest=makeup">Let’s create your look ↗</Link>
+        </EditorialFeature>
         <div className="cards">
           <article className="info-card">
             <p className="eyebrow">PORTRAIT & GRADUATION</p>
@@ -81,6 +88,7 @@ export default function Page() {
             Partner availability and the final styling quote are confirmed
             individually.
           </p>
+          <p>For a tailored wedding photography and makeup collection, packages start at A$999. Share your plans for a quote that confirms the coverage and styling included.</p>
         </section>
       </div>
     </main>

@@ -1,15 +1,19 @@
 const fs = require("node:fs");
 const ts = require("typescript");
 const Module = require("node:module");
+const path = require("node:path");
 const source = fs.readFileSync("src/lib/studio.ts", "utf8");
 const output = ts.transpileModule(source, {
   compilerOptions: {
     module: ts.ModuleKind.CommonJS,
     target: ts.ScriptTarget.ES2020,
+    esModuleInterop: true,
   },
 }).outputText;
 const moduleObject = new Module("studio-catalog");
-moduleObject._compile(output, "studio-catalog.cjs");
+moduleObject.filename = path.resolve("src/lib/studio.cjs");
+moduleObject.paths = Module._nodeModulePaths(path.dirname(moduleObject.filename));
+moduleObject._compile(output, moduleObject.filename);
 const { studio, styles, collections, packages, photos, siteUrl } =
   moduleObject.exports;
 fs.writeFileSync(

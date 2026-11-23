@@ -1,8 +1,9 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import PageIntro from "@/components/PageIntro";
-import InquiryForm from "@/components/InquiryForm";
-import { pageMetadata, studio } from "@/lib/studio";
+import ContactLinks from "@/components/ContactLinks";
+import QuickInquiryForm from "@/components/QuickInquiryForm";
+import { pageMetadata } from "@/lib/studio";
 export const metadata = pageMetadata(
   "Book a Photography Session Brisbane",
   "Enquire about weddings, graduation portraits, registry ceremonies and portrait sessions with Brisbane photographer Hannah.",
@@ -29,14 +30,7 @@ export default function Page() {
             Share your plans and the feeling you’re drawn to. I’ll help you find
             the right package, location and time.
           </p>
-          <p>
-            <a className="text-link" href={"mailto:" + studio.email}>
-              {studio.email}
-            </a>
-          </p>
-          <p>
-            WeChat: <strong>{studio.wechat}</strong>
-          </p>
+          <ContactLinks />
           <p className="muted">
             Based in Brisbane. Travel available with flights and accommodation
             covered.
@@ -46,7 +40,7 @@ export default function Page() {
           </Link>
         </aside>
         <Suspense fallback={<p>Preparing your enquiry…</p>}>
-          <InquiryForm />
+          <QuickInquiryForm />
         </Suspense>
       </div>
     </main>

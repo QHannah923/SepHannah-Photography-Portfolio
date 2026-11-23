@@ -4,6 +4,8 @@ module.exports = {
     "name": "SepHannah Studio",
     "email": "qhanna000@gmail.com",
     "wechat": "SepHannah",
+    "instagram": "https://www.instagram.com/sephannahstudio/",
+    "instagramHandle": "@sephannahstudio",
     "city": "Brisbane",
     "timezone": "Australia/Brisbane"
   },
@@ -242,6 +244,285 @@ module.exports = {
     }
   ],
   "photos": [
+    {
+      "id": "bridal-preparations",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/bridal-preparations.webp",
+      "alt": "A bride smiling at her reflection during wedding makeup",
+      "collection": "weddings",
+      "styles": [
+        "airy"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "beaded-gown",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/beaded-gown.webp",
+      "alt": "Beaded bridal gown and a bouquet held close",
+      "collection": "weddings",
+      "styles": [
+        "film",
+        "editorial"
+      ],
+      "width": 1330,
+      "height": 2000
+    },
+    {
+      "id": "bouquet-and-shoes",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/bouquet-and-shoes.webp",
+      "alt": "White orchids, bridal shoes and a bouquet in the bride’s hands",
+      "collection": "weddings",
+      "styles": [
+        "editorial"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "garden-ceremony",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/garden-ceremony.webp",
+      "alt": "White chairs and a floral arch overlooking a lake",
+      "collection": "weddings",
+      "styles": [
+        "airy"
+      ],
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "id": "ceremony-flowers",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/ceremony-flowers.webp",
+      "alt": "White ceremony chairs with flowers resting on the grass",
+      "collection": "weddings",
+      "styles": [
+        "airy"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "garden-visitor",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/garden-visitor.webp",
+      "alt": "A kangaroo beside the hedges at an outdoor wedding venue",
+      "collection": "weddings",
+      "styles": [
+        "airy"
+      ],
+      "width": 1235,
+      "height": 1853
+    },
+    {
+      "id": "welcome-details",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/welcome-details.webp",
+      "alt": "An embroidered wedding welcome sign in the garden",
+      "collection": "weddings",
+      "styles": [
+        "airy",
+        "editorial"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "garden-bride",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/garden-bride.webp",
+      "alt": "A bride holding purple flowers beneath a flowering tree",
+      "collection": "weddings",
+      "styles": [
+        "airy"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "chapel-vows",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/chapel-vows.webp",
+      "alt": "A bride and groom standing together in a sunlit chapel",
+      "collection": "weddings",
+      "styles": [
+        "film"
+      ],
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "id": "ring-exchange",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/ring-exchange.webp",
+      "alt": "A close view of hands during a wedding ring exchange",
+      "collection": "weddings",
+      "styles": [
+        "film"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "lakeside-vows",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/lakeside-vows.webp",
+      "alt": "A couple exchanging vows beside the lake",
+      "collection": "weddings",
+      "styles": [
+        "airy"
+      ],
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "id": "chapel-celebration",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/chapel-celebration.webp",
+      "alt": "Wedding guests celebrating a couple in a bright glass-fronted chapel",
+      "collection": "weddings",
+      "styles": [
+        "airy"
+      ],
+      "width": 2000,
+      "height": 1333
+    },
+    {
+      "id": "just-married",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/just-married.webp",
+      "alt": "A newly married couple raising their hands beside a lakeside ceremony",
+      "collection": "weddings",
+      "styles": [
+        "airy"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "chapel-gathering",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/chapel-gathering.webp",
+      "alt": "A bride and her wedding party outside a white chapel",
+      "collection": "weddings",
+      "styles": [
+        "airy"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "garden-reflections",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/garden-reflections.webp",
+      "alt": "A bride and groom walking beside a reflecting pool and palm trees",
+      "collection": "weddings",
+      "styles": [
+        "film"
+      ],
+      "width": 2000,
+      "height": 1331
+    },
+    {
+      "id": "walking-together",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/walking-together.webp",
+      "alt": "A bride and groom holding hands and laughing in a tropical garden",
+      "collection": "weddings",
+      "styles": [
+        "film"
+      ],
+      "width": 2000,
+      "height": 1330
+    },
+    {
+      "id": "chapel-portraits",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/chapel-portraits.webp",
+      "alt": "A groom lifting the bride’s hand beside a chapel window",
+      "collection": "weddings",
+      "styles": [
+        "airy"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "quiet-embrace",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/quiet-embrace.webp",
+      "alt": "A couple embracing with a white bouquet beneath dark trees",
+      "collection": "weddings",
+      "styles": [
+        "cinematic"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "bouquet-in-the-air",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/bouquet-in-the-air.webp",
+      "alt": "A groom lifting the bride as she raises her white bouquet",
+      "collection": "weddings",
+      "styles": [
+        "cinematic"
+      ],
+      "width": 1332,
+      "height": 2000
+    },
+    {
+      "id": "afterglow",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/afterglow.webp",
+      "alt": "A couple holding hands beside the lake as evening falls",
+      "collection": "weddings",
+      "styles": [
+        "cinematic"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "rings-and-flowers",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/rings-and-flowers.webp",
+      "alt": "Wedding rings and white flowers arranged beside a marriage certificate",
+      "collection": "registry",
+      "styles": [
+        "editorial"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "city-stairway",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/city-stairway.webp",
+      "alt": "A newly married couple on a sunlit city stairway",
+      "collection": "registry",
+      "styles": [
+        "editorial",
+        "airy"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "city-walk",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/city-walk.webp",
+      "alt": "A couple in white wedding outfits walking through the city",
+      "collection": "registry",
+      "styles": [
+        "airy",
+        "editorial"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "sandstone-portraits",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/sandstone-portraits.webp",
+      "alt": "A couple holding their wedding rings beside sandstone columns",
+      "collection": "registry",
+      "styles": [
+        "editorial"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
+    {
+      "id": "city-closeup",
+      "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/stories/city-closeup.webp",
+      "alt": "A close portrait of newlyweds with white flowers and sandstone architecture",
+      "collection": "registry",
+      "styles": [
+        "editorial"
+      ],
+      "width": 1333,
+      "height": 2000
+    },
     {
       "id": "wedding",
       "src": "https://sep-hannah-photography-portfolio-qt.vercel.app/images/wedding.jpg",

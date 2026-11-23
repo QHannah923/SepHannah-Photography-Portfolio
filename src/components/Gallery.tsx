@@ -52,6 +52,7 @@ export default function Gallery({
           <figure key={p.id}>
             <button
               className="gallery-image"
+              style={p.width && p.height ? { aspectRatio: `${p.width} / ${p.height}` } : undefined}
               onClick={() => setActive(p)}
               aria-label={"Enlarge: " + p.alt}
             >
